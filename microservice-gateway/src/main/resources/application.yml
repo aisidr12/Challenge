@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: microservice-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: microservice-subscription
+          uri: http://localhost:8081
+          predicates:
+            -Path=/api/subscription/**
+        - id: microservice-email
+          uri: http://localhost:8082
+          predicates:
+            -Path=/api/email/**
+  config:
+    import: optional:configserver:http://localhost:8888
+
+
+eureka:
+  client:
+    register-with-eureka: true
+server:
+  port: 8080
+

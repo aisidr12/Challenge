@@ -6,6 +6,7 @@ import com.arturo.subscription.entity.SubscriptionEntity;
 import com.arturo.subscription.mapper.SubscriptionMapper;
 import com.arturo.subscription.repository.SubscriptionRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,8 @@ public class SubscriptionService {
     }
 
     public List<SubscriptionResponse> findAll() {
-        return subscriptionRepository.findAll().stream().map(subscriptionMapper::mapper).toList();
+        return subscriptionRepository.findAll().stream().map(t->subscriptionMapper.mapper(t)).collect(
+            Collectors.toList());
     }
 
     public SubscriptionResponse getDetail(Long idSubscription) {

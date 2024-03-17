@@ -21,6 +21,7 @@
         <module>microservice-eureka</module>
         <module>microservice-config</module>
         <module>microservice-subscription</module>
+        <module>microservice-email</module>
     </modules>
     <properties>
         <java.version>17</java.version>

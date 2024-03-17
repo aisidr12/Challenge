@@ -10,9 +10,13 @@ public class SubscriptionMapper {
 
   public SubscriptionResponse mapper(SubscriptionEntity entity) {
     return SubscriptionResponse.builder()
-        .idSubscription(String.valueOf(entity.getIdSubscription()))
+        .idSubscription(entity.getIdSubscription())
+        .gender(entity.getGender())
         .firstName(entity.getFirstName())
         .email(entity.getEmail())
+        .birth(entity.getBirth())
+        .newsletter(entity.isNewsletter())
+        .newsLetterId(entity.getNewsLetterId())
         .build();
   }
 

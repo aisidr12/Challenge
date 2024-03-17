@@ -5,10 +5,9 @@ import com.arturo.subscription.dto.request.SubscriptionResponse;
 import com.arturo.subscription.entity.SubscriptionEntity;
 import com.arturo.subscription.mapper.SubscriptionMapper;
 import com.arturo.subscription.repository.SubscriptionRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -17,9 +16,9 @@ public class SubscriptionService {
     private final SubscriptionRepository subscriptionRepository;
     private final SubscriptionMapper subscriptionMapper;
 
-
     public SubscriptionResponse createSubscription(SubscriptionRequest subscriptionRequest) {
-        return subscriptionMapper.mapper(subscriptionRepository.save(requestToEntity(subscriptionRequest)));
+        return subscriptionMapper.mapper(
+            subscriptionRepository.save(requestToEntity(subscriptionRequest)));
     }
 
     private SubscriptionEntity requestToEntity(SubscriptionRequest subscriptionRequest) {
@@ -31,13 +30,14 @@ public class SubscriptionService {
     }
 
     public SubscriptionResponse getDetail(Long idSubscription) {
-        return subscriptionRepository.findById(idSubscription).map(subscriptionMapper::mapper).orElse(SubscriptionResponse.builder().build());
+        return subscriptionRepository.findById(idSubscription).map(subscriptionMapper::mapper)
+            .orElse(SubscriptionResponse.builder().build());
     }
 
     public SubscriptionResponse cancelSubscription(Long idSubscription) {
         subscriptionRepository.deleteById(idSubscription);
         return SubscriptionResponse.builder()
-                .response("Subscription Cancelled successfully")
-                .build();
+            .response("Subscription Cancelled successfully")
+            .build();
     }
 }

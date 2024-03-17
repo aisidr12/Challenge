@@ -3,11 +3,10 @@ package com.arturo.subscription.controller;
 import com.arturo.subscription.dto.request.SubscriptionRequest;
 import com.arturo.subscription.dto.request.SubscriptionResponse;
 import com.arturo.subscription.service.SubscriptionService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

@@ -2,11 +2,10 @@ package com.arturo.subscription.controller;
 
 import com.arturo.subscription.dto.request.SubscriptionRequest;
 import com.arturo.subscription.dto.request.SubscriptionResponse;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 public interface SubscriptionUI {
 

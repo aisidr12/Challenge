@@ -14,19 +14,20 @@ import java.util.List;
 public class SubscriptionController implements SubscriptionUI {
 
     private final SubscriptionService subscriptionService;
+
     @Override
     public ResponseEntity<SubscriptionResponse> createSubscription(SubscriptionRequest request) {
-        return null;
+        return ResponseEntity.ok(subscriptionService.createSubscription(request));
     }
 
     @Override
     public ResponseEntity<SubscriptionResponse> cancelSubscription(SubscriptionRequest request) {
-        return null;
+        return ResponseEntity.ok(subscriptionService.cancelSubscription(request.idSubscription()));
     }
 
     @Override
     public ResponseEntity<SubscriptionResponse> getDetailSubscription(SubscriptionRequest request) {
-        return null;
+        return ResponseEntity.ok(subscriptionService.getDetail(request.idSubscription()));
     }
 
     @Override

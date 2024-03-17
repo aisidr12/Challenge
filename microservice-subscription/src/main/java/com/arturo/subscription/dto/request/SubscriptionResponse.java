@@ -11,4 +11,5 @@ public class SubscriptionResponse {
     private String birth;
     private boolean newsletter;
     private String newsLetterId;
+    private String response;
 }

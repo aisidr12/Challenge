@@ -28,8 +28,8 @@ public class EmailController implements EmailUI {
   }
 
   @Override
-  public ResponseEntity<EmailResponse> getDetailEmail(EmailRequest request) {
-    return ResponseEntity.ok(emailService.findByEmail(request.email()));
+  public ResponseEntity<EmailResponse> getDetailEmail(String email) {
+    return ResponseEntity.ok(emailService.findByEmail(email));
   }
 
   @Override

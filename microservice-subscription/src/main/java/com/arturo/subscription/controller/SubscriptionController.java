@@ -39,9 +39,8 @@ public class SubscriptionController implements SubscriptionUI {
     }
 
     @Override
-    public ResponseEntity<SubscriptionResponse> getDetailSubscription(
-        @RequestBody SubscriptionRequest request) {
-        return ResponseEntity.ok(subscriptionService.getDetail(request.idSubscription()));
+    public ResponseEntity<SubscriptionResponse> getDetailSubscription(Long idSubscription) {
+        return ResponseEntity.ok(subscriptionService.getDetail(idSubscription));
     }
 
     @Override
